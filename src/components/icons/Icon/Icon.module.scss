@@ -1,0 +1,18 @@
+@use '../../../styles/variables.scss' as vars;
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.icon_color-primary {
+  color: vars.$text-primary;
+}
+
+.icon_color-secondary {
+  color: vars.$text-secondary;
+}
+
+.icon_color-accent {
+  color: vars.$text-accent;
+}

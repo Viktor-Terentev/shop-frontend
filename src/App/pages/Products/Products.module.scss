@@ -1,0 +1,106 @@
+@use '../../../styles/variables' as vars;
+@use '../../../styles/mixins' as mixins;
+
+.products {
+  max-width: vars.$container-w;
+  margin: 0 auto;
+
+  &__header {
+    max-width: 660px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: vars.$space-xl;
+    margin: 50px auto;
+
+    @include mixins.respond(lg) {
+      max-width: 600px;
+    }
+
+    @include mixins.respond(md) {
+      max-width: 500px;
+    }
+
+    @include mixins.mobile-only {
+        padding: 0 vars.$space-l;
+    }
+  }
+
+  &__title {
+    @include mixins.respond(lg) {
+      font-size: 40px;
+    }
+
+    @include mixins.respond(md) {
+      font-size: 36px;
+    }
+  }
+
+  &__subtitle {
+    @include mixins.respond(lg) {
+      font-size: 18px;
+    }
+  }
+
+
+  &__grid {
+    display: grid;
+    margin: 0 vars.$space-xxxl;
+
+    @include mixins.respond(md) {
+      margin: 0;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: vars.$space-xl;
+
+    &Title {
+      font-size: 32px;
+
+      @include mixins.respond(lg) {
+        font-size: 28px;
+      }
+
+      @include mixins.respond(md) {
+        font-size: 24px;
+      }
+    }
+
+    @include mixins.respond(md) {
+      justify-content: center;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 80px;
+    margin: vars.$space-xl 0;
+    padding: 0;
+    list-style: none;
+
+    @include mixins.tablet-only {
+      grid-template-columns: repeat(2, 340px);
+      justify-content: center;
+      gap: 24px;
+    }
+
+    @include mixins.respond(md) {
+      grid-template-columns: min(100%, 360px);
+      justify-content: center;
+      gap: vars.$space-l;
+    }
+
+    @include mixins.respond(sm) {
+      grid-template-columns: min(100%, 340px);
+      justify-content: center;
+      gap: vars.$space-m;
+    }
+  }
+
+}
+
