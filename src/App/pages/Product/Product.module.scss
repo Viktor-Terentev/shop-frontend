@@ -1,0 +1,193 @@
+@use '../../../styles/variables' as vars;
+@use '../../../styles/mixins' as mixins;
+
+.product {
+  max-width: vars.$container-w;
+  margin-left: 100px;
+
+  @include mixins.respond(lg) {
+    margin: 0 auto;
+    padding: 0 vars.$space-xxl;
+    overflow: hidden;
+  }
+
+
+  &__header {
+    margin-top: 60px;
+
+    @include mixins.respond(lg) {
+      margin-top: vars.$space-xxl;
+    }
+
+    @include mixins.respond(md) {
+      margin-top: vars.$space-xl;
+    }
+
+    @include mixins.respond(md) {
+      margin-top: vars.$space-m;
+    }
+
+  }
+
+  &__back {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    max-width: 130px;
+    gap: vars.$space-m;
+    text-decoration: none;
+    color: vars.$text-primary;
+
+    @include mixins.respond(lg) {
+      gap: vars.$space-xxs;
+    }
+
+    &Icon {
+      transform: rotate(-180deg);
+    }
+
+    &Text {
+      &:hover {
+        color: vars.$text-accent;
+      }
+    }
+
+  }
+
+  &__content {
+    display: flex;
+    gap: vars.$space-xxxl;
+    margin-top: vars.$space-xxl;
+
+    @include mixins.respond(lg) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: vars.$space-l;
+    }
+
+    @include mixins.respond(md) {
+      gap: vars.$space-m;
+    }
+
+
+  }
+
+  &__image {
+    display: block;
+    width: 600px;
+    height: 600px;
+
+    @include mixins.desktop-only {
+        width: 550px;
+        height: 550px;
+    }
+
+    @include mixins.tablet-only {
+        width: 500px;
+        height: 500px;
+    }
+
+    @include mixins.mobile-only {
+        width: 100%;
+        height: auto;
+        max-width: 450px;
+    }
+
+  }
+
+  &__details {
+    @include mixins.respond(lg) {
+      padding: 0 vars.$space-xxl;
+    }
+
+    @include mixins.respond(md) {
+      margin: 0 auto;
+      padding: 0;
+      width: 100%;
+      max-width: 450px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: vars.$space-xl;
+
+    @include mixins.respond(md) {
+        gap: vars.$space-m;
+    }
+  }
+
+  &__title {
+
+    @include mixins.respond(lg) {
+      font-size: 32px;
+    }
+
+
+    @include mixins.respond(md) {
+      font-size: 24px;
+    }
+  }
+
+  &__desc {
+    @include mixins.respond(lg) {
+      font-size: 18px;
+    }
+
+
+    @include mixins.respond(md) {
+      font-size: 16px;
+    }
+  }
+
+  &__purchase {
+    margin-top: vars.$space-xxxl;
+    padding-top: vars.$space-xxl;
+    display: flex;
+    flex-direction: column;
+    gap: vars.$space-xxxl;
+
+    @include mixins.respond(lg) {
+      padding: 0;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__price {
+    font-size: 24px;
+  }
+
+  &__actions {
+    display: flex;
+    gap: vars.$space-xxxl;
+
+    @include mixins.respond(lg) {
+      flex-direction: row-reverse;
+    }
+
+    @include mixins.respond(md) {
+        gap: vars.$space-l;
+    }
+  }
+
+  &__btn {
+    @include mixins.respond(md) {
+      padding: vars.$space-xxs;
+    }
+
+    @include mixins.respond(sm) {
+      padding: 4px;
+    }
+  }
+
+  &__btn--ghost {
+    --l-button-text: #{vars.$text-primary};
+    --l-button-background: #{vars.$button-primary-text};
+    border: 1px solid vars.$text-secondary;
+  }
+
+}

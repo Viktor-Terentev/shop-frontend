@@ -1,0 +1,101 @@
+@use '../../styles/variables.scss' as vars;
+@use '../../styles/mixins' as mixins;
+
+.card {
+  cursor: pointer;
+  width: 100%;
+  max-width: 360px;
+  min-width: 240px;
+  background-color: vars.$card-bg;
+  transition: box-shadow 0.3s ease;
+  border-radius: vars.$border-radius;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 618px;
+
+  @include mixins.desktop-only {
+    max-width: 360px;
+
+  }
+
+  @include mixins.tablet-only {
+    max-width: 300px;
+    max-height: 550px;
+    min-height: 550px;
+  }
+
+  @include mixins.mobile-only {
+    max-width: 420px;
+    min-width: 320px;
+    min-height: 620px;
+  }
+
+  @include mixins.respond(sm) {
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 240px;
+    max-height: 520px;
+  }
+
+  &__header {
+    background-color: vars.$card-image-bg;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      padding-top: 100%;
+    }
+  }
+
+  &__header-src {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  &__body {
+    padding: vars.$space-xl vars.$space-xs;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    @include mixins.tablet-only {
+      padding: vars.$space-l vars.$space-xs;
+    }
+
+    @include mixins.mobile-only {
+      padding: vars.$space-m vars.$space-xs;
+    }
+  }
+
+  &__caption {
+    margin-bottom: vars.$space-xs;
+  }
+
+  &__subtitle {
+    margin-top: vars.$space-xxs;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+  }
+
+  &__action {
+    margin-left: auto;
+    padding-left: vars.$space-xxs;
+  }
+
+  &:hover {
+    box-shadow: vars.$shadow;
+  }
+}
+
+

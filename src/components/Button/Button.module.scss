@@ -1,0 +1,50 @@
+@use '../../styles/variables' as vars;
+
+.button {
+  --l-button-text: #{vars.$button-primary-text};
+  --l-button-background: #{vars.$button-primary-bg};
+
+  min-height: 52px;
+  padding: vars.$space-s vars.$space-l;
+  border-radius: vars.$border-radius;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: var(--l-button-background);
+  border: none;
+  display: inline-flex;
+  align-items: center;
+
+  &__text,
+  &__loader {
+    transition: color 0.3s ease;
+  }
+
+  & &__text {
+    color: var(--l-button-text);
+  }
+
+  & &__loader {
+    color: var(--l-button-text);
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    --l-button-text: #{vars.$button-primary-text-hover};
+    --l-button-background: #{vars.$button-primary-bg-hover};
+  }
+
+  &:active {
+    --l-button-text: #{vars.$button-primary-text-active};
+    --l-button-background: #{vars.$button-primary-bg-active};
+  }
+
+  &:disabled {
+    pointer-events: none;
+  }
+
+  &_disabled {
+    --l-button-text: #{vars.$button-primary-text-disabled};
+    --l-button-background: #{vars.$button-primary-bg-disabled};
+  }
+}
